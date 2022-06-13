@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "196535392716",
+    "project_id": "carona-utfpr-efdd9",
+    "storage_bucket": "carona-utfpr-efdd9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196535392716:android:da30c059cb36b0352e2569",
+        "android_client_info": {
+          "package_name": "com.example.carona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196535392716-qd6c25sll37opm2bktpukb8c8auubla8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX8TIHSon-ITPUIyBKK5hkNJ-gL56TyCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196535392716-qd6c25sll37opm2bktpukb8c8auubla8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
