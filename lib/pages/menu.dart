@@ -45,7 +45,7 @@ class Menu extends StatefulWidget {
                           content: Text('Você já Possui Carona Cadastrada!')),
                     );
                   } else {
-                    MinhaCarona.pegou_carona = tru;
+                    MinhaCarona.pegou_carona = true;
                     DarCarona.caronas[index].vagas--;
                     MinhaCarona.AddMinhaCarona(
                       DarCarona.caronas[index].nome,
