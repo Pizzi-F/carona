@@ -191,6 +191,10 @@ class _DarCaronaState extends State<DarCarona> {
                 Form(
                   key: _form7,
                   child: TextFormField(
+                    keyboardType: TextInputType.datetime,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z0-9]+$'))
+                    ],
                     decoration: InputDecoration(
                       labelText: 'Placa',
                       labelStyle: TextStyle(
