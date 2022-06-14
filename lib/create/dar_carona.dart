@@ -83,6 +83,11 @@ class _DarCaronaState extends State<DarCarona> {
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.monetization_on_outlined),
+                        suffix:Text(
+                          'reais',
+                          style: TextStyle(fontSize: 11),
+                        )
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -192,6 +197,10 @@ class _DarCaronaState extends State<DarCarona> {
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(),
+                        suffix:Text(
+                          'LLL-1L11',
+                          style: TextStyle(fontSize: 11),
+                        )
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -216,6 +225,10 @@ class _DarCaronaState extends State<DarCarona> {
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(),
+                      suffix:Text(
+                        'DD/MM/AAAA',
+                        style: TextStyle(fontSize: 11),
+                      )
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -240,6 +253,10 @@ class _DarCaronaState extends State<DarCarona> {
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(),
+                        suffix:Text(
+                          'HH:MM',
+                          style: TextStyle(fontSize: 11),
+                        )
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
