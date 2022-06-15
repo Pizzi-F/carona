@@ -83,7 +83,7 @@ class _DarCaronaState extends State<DarCarona> {
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.monetization_on_outlined),
+                        //prefixIcon: Icon(Icons.monetization_on_outlined),
                         suffix:Text(
                           'reais',
                           style: TextStyle(fontSize: 11),
@@ -192,9 +192,7 @@ class _DarCaronaState extends State<DarCarona> {
                   key: _form7,
                   child: TextFormField(
                     keyboardType: TextInputType.datetime,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z0-9]+$'))
-                    ],
+
                     decoration: InputDecoration(
                       labelText: 'Placa',
                       labelStyle: TextStyle(
