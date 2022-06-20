@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:carona/models/carona_repositorio.dart';
 import '../models/carona.dart';
 import 'package:carona/pages/menu.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 
 final _form = GlobalKey<FormState>();
 final _form2 = GlobalKey<FormState>();
@@ -219,7 +220,8 @@ class _DarCaronaState extends State<DarCarona> {
                   child: TextFormField(
                     keyboardType: TextInputType.datetime,
                     inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp("^[0-9.]*"))
+                      FilteringTextInputFormatter.digitsOnly,
+                      DataInputFormatter(),
                     ],
                     decoration: InputDecoration(
                       labelText: 'Data',
@@ -247,7 +249,8 @@ class _DarCaronaState extends State<DarCarona> {
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp("^[0-9.]*"))
+                      FilteringTextInputFormatter.digitsOnly,
+                      HoraInputFormatter(),
                     ],
                     decoration: InputDecoration(
                       labelText: 'Horario',
