@@ -1,4 +1,5 @@
 import 'package:carona/meu_app.dart';
+import 'package:carona/repositories/caronas_repository.dart';
 import 'package:carona/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,7 +13,11 @@ void main() async {
 
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => AuthService())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthService()),
+        ChangeNotifierProvider(create: (context) => CaronasRepository()),
+
+      ],
       child: MeuApp(), 
     ),
   );

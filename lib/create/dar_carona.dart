@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:carona/models/motorista.dart';
+import 'package:carona/repositories/caronas_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:carona/models/carona_repositorio.dart';
+import 'package:provider/provider.dart';
 import '../models/carona.dart';
 import 'package:carona/pages/menu.dart';
 import 'package:brasil_fields/brasil_fields.dart';
@@ -21,6 +23,8 @@ final _form9 = GlobalKey<FormState>();
 class DarCarona extends StatefulWidget {
   DarCarona({Key? key}) : super(key: key);
   static List<Carona> caronas = [];
+  //late CaronasRepository caro;
+
   @override
   State<DarCarona> createState() => _DarCaronaState();
 }
@@ -35,10 +39,17 @@ class _DarCaronaState extends State<DarCarona> {
   late String placa;
   late String data;
   late String horario;
+  late CaronasRepository caro;
   int ra = 1650920;
+
+  static List<Carona> caronas = [];
+
+
 
   @override
   Widget build(BuildContext context) {
+    //caro = Provider.of<CaronasRepository>(context);
+    caro = context.watch<CaronasRepository>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Dar Carona'),
@@ -313,6 +324,8 @@ class _DarCaronaState extends State<DarCarona> {
                           Menu.id,
                         );
                       });
+                      caro.saveAll(caronas);
+                      
                       Navigator.pop(context);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
