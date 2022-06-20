@@ -86,32 +86,32 @@ class _MenuState extends State<Menu> {
           ),
         ],
       )),
-      floatingActionButton: FloatingActionButton.extended(
-        icon: Icon(Icons.car_rental),
-        label: Text('Dar Carona'),
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => DarCarona(),
-              ));
-          //DarCarona.caronas = [];
-          //CaronaRepositorio().addCarona(DarCarona.caronas, 'Cláudia', 2.05, 3,
-          // 'UTFPR', 'Gol', 'Preto', 'XXX-123', '16/07/1996', '13:50');
-          //CaronaRepositorio().addCarona(caronas, 'Felipe', 4, '1', 'UTFPR',
-          //'Saveiro', 'Branco', 'AAA-000', '2');
-          //CaronaRepositorio().addCarona(caronas, 'Humnerto', 10.50, '3',
-          //'UTFPR', 'Virtus', 'Prata', 'BBB-222', '3');
-          //for (int i = 0; i < caronas.length; i++) {
-          //print(caronas[i].carro);
-          //}
-          //print(caronas.length);
-          //CaronaRepositorio().removeCarona(DarCarona.caronas, 'Cláudia');
-          //CaronaRepositorio().removeCarona(caronas, '1');
-          //print('aqui');
-          // print(caronas.length);
-        },
-      ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   icon: Icon(Icons.car_rental),
+      //   label: Text('Dar Carona'),
+      //   onPressed: () {
+      //     Navigator.push(
+      //         context,
+      //         MaterialPageRoute(
+      //           builder: (_) => DarCarona(),
+      //         ));
+      //     //DarCarona.caronas = [];
+      //     //CaronaRepositorio().addCarona(DarCarona.caronas, 'Cláudia', 2.05, 3,
+      //     // 'UTFPR', 'Gol', 'Preto', 'XXX-123', '16/07/1996', '13:50');
+      //     //CaronaRepositorio().addCarona(caronas, 'Felipe', 4, '1', 'UTFPR',
+      //     //'Saveiro', 'Branco', 'AAA-000', '2');
+      //     //CaronaRepositorio().addCarona(caronas, 'Humnerto', 10.50, '3',
+      //     //'UTFPR', 'Virtus', 'Prata', 'BBB-222', '3');
+      //     //for (int i = 0; i < caronas.length; i++) {
+      //     //print(caronas[i].carro);
+      //     //}
+      //     //print(caronas.length);
+      //     //CaronaRepositorio().removeCarona(DarCarona.caronas, 'Cláudia');
+      //     //CaronaRepositorio().removeCarona(caronas, '1');
+      //     //print('aqui');
+      //     // print(caronas.length);
+      //   },
+      // ),
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Theme.of(context).primaryColor,
           selectedItemColor: Colors.black,
@@ -119,32 +119,23 @@ class _MenuState extends State<Menu> {
           // ignore: prefer_const_literals_to_create_immutables
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.delete_forever), label: 'Excluir Carona'),
+                icon: Icon(Icons.car_rental), label: 'Dar Carona'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.list), label: 'Minha Carona'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.refresh), label: 'Atualizar Página'),
-          ],
+            ],
           onTap: (index) {
             if (index == 0) {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => Motorista(),
-                  ));
+              context,
+              MaterialPageRoute(
+                builder: (_) => DarCarona(),
+              ));
             } else if (index == 1) {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (_) => MinhaCarona(),
                   ));
-            } else if (index == 2) {
-              setState(() {
-                Menu.Refresh();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Página Atualizada!')),
-                );
-              });
             }
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
