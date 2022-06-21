@@ -5,11 +5,18 @@ import 'package:carona/models/carona_repositorio.dart';
 import 'package:carona/models/carona.dart';
 import 'package:carona/models/motorista.dart';
 import 'package:carona/pages/login.dart';
+import 'package:carona/repositories/caronas_repository.dart';
+import 'package:carona/widgets/carona_card.dart';
 import 'package:flutter/material.dart';
 import 'package:carona/models/minha_carona.dart';
+import 'package:provider/provider.dart';
 
 class Menu extends StatefulWidget {
+  //Carona carona;
+
   Menu({Key? key}) : super(key: key);
+  //late Carona carona;
+  late CaronasRepository carona;
   static int id = 0;
   static Widget Refresh() => DarCarona.caronas.isEmpty
       ? Center(child: CircularProgressIndicator())
@@ -86,6 +93,20 @@ class _MenuState extends State<Menu> {
           ),
         ],
       )),
+      /*body: (Container(
+        child: Consumer<CaronasRepository>(
+          builder: (context, caronas, child){
+            return caronas.lista.isEmpty
+                ?ListTile(
+              //leading: Icon(Icons.),
+              title: Text('Ainda nao tem carona'),
+            )
+            :ListView.builder(itemCount: caronas.lista.length,itemBuilder: (_, index){
+                return CaronaCard(carona: caronas.lista[index]);
+            });
+          }
+        )
+      )),*/
       // floatingActionButton: FloatingActionButton.extended(
       //   icon: Icon(Icons.car_rental),
       //   label: Text('Dar Carona'),
@@ -122,6 +143,8 @@ class _MenuState extends State<Menu> {
                 icon: Icon(Icons.car_rental), label: 'Dar Carona'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.list), label: 'Minha Carona'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.refresh), label: 'Atualizar Página'),
             ],
           onTap: (index) {
             if (index == 0) {
@@ -136,7 +159,15 @@ class _MenuState extends State<Menu> {
                   MaterialPageRoute(
                     builder: (_) => MinhaCarona(),
                   ));
+            } else if (index == 2) {
+              setState(() {
+                Menu.Refresh();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Página Atualizada!')),
+                );
+              });
             }
+
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );
