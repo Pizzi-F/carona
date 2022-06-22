@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:carona/models/carona_repositorio.dart';
 import 'package:provider/provider.dart';
+import 'package:social_share/social_share.dart';
 import '../models/carona.dart';
 import 'package:carona/pages/menu.dart';
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:carona/current_location_screen.dart';
 
 final _form = GlobalKey<FormState>();
 final _form2 = GlobalKey<FormState>();
@@ -21,7 +23,9 @@ final _form8 = GlobalKey<FormState>();
 final _form9 = GlobalKey<FormState>();
 
 class DarCarona extends StatefulWidget {
-  DarCarona({Key? key, }) : super(key: key);
+  DarCarona({
+    Key? key,
+  }) : super(key: key);
   static List<Carona> caronas = [];
   late CaronasRepository caro;
 
@@ -43,8 +47,6 @@ class _DarCaronaState extends State<DarCarona> {
   int ra = 1650920;
 
   static List<Carona> caronas = [];
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,17 +92,16 @@ class _DarCaronaState extends State<DarCarona> {
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      labelText: 'Preço',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                      border: OutlineInputBorder(),
+                        labelText: 'Preço',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(),
                         //prefixIcon: Icon(Icons.monetization_on_outlined),
-                        suffix:Text(
+                        suffix: Text(
                           'reais',
                           style: TextStyle(fontSize: 11),
-                        )
-                    ),
+                        )),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Informe o Preço';
@@ -204,18 +205,16 @@ class _DarCaronaState extends State<DarCarona> {
                   key: _form7,
                   child: TextFormField(
                     keyboardType: TextInputType.datetime,
-
                     decoration: InputDecoration(
-                      labelText: 'Placa',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                      border: OutlineInputBorder(),
-                        suffix:Text(
+                        labelText: 'Placa',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(),
+                        suffix: Text(
                           'LLL-1L11',
                           style: TextStyle(fontSize: 11),
-                        )
-                    ),
+                        )),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Informe a Placa';
@@ -235,16 +234,15 @@ class _DarCaronaState extends State<DarCarona> {
                       DataInputFormatter(),
                     ],
                     decoration: InputDecoration(
-                      labelText: 'Data',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                      border: OutlineInputBorder(),
-                      suffix:Text(
-                        'DD/MM/AAAA',
-                        style: TextStyle(fontSize: 11),
-                      )
-                    ),
+                        labelText: 'Data',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(),
+                        suffix: Text(
+                          'DD/MM/AAAA',
+                          style: TextStyle(fontSize: 11),
+                        )),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Informe a Data';
@@ -264,16 +262,15 @@ class _DarCaronaState extends State<DarCarona> {
                       HoraInputFormatter(),
                     ],
                     decoration: InputDecoration(
-                      labelText: 'Horario',
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                      border: OutlineInputBorder(),
-                        suffix:Text(
+                        labelText: 'Horario',
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                        border: OutlineInputBorder(),
+                        suffix: Text(
                           'HH:MM',
                           style: TextStyle(fontSize: 11),
-                        )
-                    ),
+                        )),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Informe o Horario';
@@ -286,7 +283,7 @@ class _DarCaronaState extends State<DarCarona> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    if (_form.currentState!.validate() &&
+                    /* if (_form.currentState!.validate() &&
                         _form2.currentState!.validate() &&
                         _form3.currentState!.validate() &&
                         _form4.currentState!.validate() &&
@@ -325,13 +322,19 @@ class _DarCaronaState extends State<DarCarona> {
                         );
                       });
                       caro.saveAll(caronas);
-                      
-                      Navigator.pop(context);
+                      //SocialShare.shareOptions(
+                      // "Carona até ${destino}\nSaindo: ${horario}\nCarro: ${carro}\nPlaca: ${placa}\nPreço: ${preco}");
+                      //Navigator.pop(context);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                             content: Text('Carona Cadastrada com Sucesso!')),
-                      );
-                    }
+                      );*/
+
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return CurrentLocationScreen();
+                    }));
+                    //}
                   },
                   child: Text('Cadastrar'),
                 ),

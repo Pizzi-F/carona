@@ -34,6 +34,7 @@ class AuthService extends ChangeNotifier {
       await _auth.createUserWithEmailAndPassword(email: email, password: senha);
       _getUser();
     } on FirebaseAuthException catch (e) {
+      print(e);
       if (e.code == 'weak-password') {
         throw AuthException('A senha é muito curta');
       } else if (e.code == 'email-already-in-use') {

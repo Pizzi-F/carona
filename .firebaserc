@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "staging": "carona-utfpr-efdd9",
+    "default": "carona-utfpr-efdd9"
+  },
+  "targets": {}
+}
