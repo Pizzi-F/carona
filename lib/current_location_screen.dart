@@ -12,7 +12,7 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
   late GoogleMapController googleMapController;
 
   static const CameraPosition initialCameraPosition =
-      CameraPosition(target: LatLng(-25.094700, -50.163158), zoom: 14);
+      CameraPosition(target: LatLng(-33.870840, 151.206286), zoom: 12);
 
   Set<Marker> markers = {};
 
@@ -27,7 +27,7 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
       body: GoogleMap(
         initialCameraPosition: initialCameraPosition,
         markers: markers,
-        zoomControlsEnabled: false,
+        zoomControlsEnabled: true,
       ),
     );
   }
